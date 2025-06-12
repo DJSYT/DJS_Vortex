@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook - DJS_Vortex</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://picsum.photos/1920/1080?jujutsu-kaisen'); /* Same Jujutsu Kaisen background */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+      z-index: 1;
+    }
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      position: relative;
+      z-index: 2; /* Ensure content is above the overlay */
+      background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent dark background for the container */
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #ff4d4d;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: #ff4d4d;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #ff4d4d;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    .comment {
+      margin: 20px 0;
+      padding: 10px;
+      border-left: 3px solid #ff4d4d;
+      text-align: left;
+    }
+    .comment p {
+      margin: 0;
+    }
+    .comment .author {
+      font-weight: bold;
+      color: #ff4d4d;
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1.1em;
+      color: #ffffff;
+      background-color: #ff4d4d;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .button:hover {
+      transform: scale(1.1);
+      background-color: #e60000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Guestbook</h1>
+    <p>Leave a message for DJS_Vortex!</p>
+    
+    <div class="form-group">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+    </div>
+    
+    <button class="button" onclick="alert('Thank you for your message! (Note: This is a static demo, messages are not saved yet.)')">Submit</button>
+    
+    <div class="comment">
+      <p class="author">Fan_123</p>
+      <p>Hey, I love your animations!</p>
+    </div>
+    
+    <a href="index.html" class="button">Back to Home</a>
+  </div>
+</body>
+</html>
