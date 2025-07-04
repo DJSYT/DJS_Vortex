@@ -1,105 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ - DJS_Vortex</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('https://i.ibb.co/k2QvZGXW/2025061209075141.jpg'); /* Same Jujutsu Kaisen back'); /* Same Jujutsu Kaisen background */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DJS_Vortex Portfolio</title>
+<style>
+  /* Modern, clean style with gray background and red accent */
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #fff; /* Light gray background */
+    color: #222;
+    line-height: 1.65;
+    scroll-behavior: smooth;
+  }
+  header {
+    background-color: #00008B; /* Deep red header */
+    padding: 0.5rem 0.5rem .
+    0.5rem;
+    text-align: center;
+    color: #fff;
+    border-bottom: 3px solid #ADD8E6;
+    box-shadow: 0 4px 10px rgba(15, 10, 222);, 1);
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 3rem;
+    letter-spacing: -0.03em;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  }
+  header p {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #ADD8E6;
+    font-style: italic;
+  }
+  nav {
+    margin-top: 1.75rem;
+  }
+  nav a {
+    margin: 0 1rem;
+    color: #ADD8E6;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  nav a:hover,
+  nav a:focus {
+    border-bottom-color: #fff;
+    color: #fff;
+    outline: none;
+  }
+  main {
+    max-width: 960px;
+    margin: 3rem auto 6rem;
+    padding: 0 1.5rem;
+  }
+  section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadeInUp 0.9s ease forwards;
+    box-sizing: border-box;
+  }
+  section:nth-of-type(1) { animation-delay: 0.25s; }
+  section:nth-of-type(2) { animation-delay: 0.55s; }
+  section:nth-of-type(3) { animation-delay: 0.85s; }
+  section:nth-of-type(4) { animation-delay: 1.15s; }
+  h2 {
+    font-weight: 900;
+    font-size: 2.4rem;
+    margin-bottom: 1.8rem;
+    color: #00008B;
+    border-bottom: 3px solid #ADD8E6;
+    padding-bottom: 0.6rem;
+  }
+  /* About Section with subtle gray background */
+  #about {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: #eaeaec;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    color: #222;
+  }
+  #about a {
+    display: inline-block;
+    border-radius: 50%;
+    border: 3px solid #00008B;
+    box-shadow: 0 8px 30px rgba(15, 10, 222);, 1);
+    transition: transform 0.3s ease;
+  }
+  #about a:hover, #about a:focus {
+    transform: scale(1.1);
+    outline: none;
+    box-shadow: 0 12px 40px rgba(45, 85, 255);, 1);
+  }
+  #about img {
+    display: block;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  #about .about-content {
+    flex-grow: 1;
+  }
+  #about p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-top: 0.8rem;
+  }
+  #about ul {
+    margin-top: 0.8rem;
+    margin-left: 1.5rem;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  #about ul ul {
+    margin-top: 0.4rem;
+  }
+  #about strong {
+    color: #00008B;
+  }
+  /* Grid for games and groups */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #1d1d1f;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover,
+  .card:focus {
+    background-color: #ADD8E6;
+    box-shadow: 0 12px 35px rgba(45, 85, 255);, 1;
+    outline: none;
+    transform: translateY(-8px);
+  }
+  .card img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    height: 160px;
+    margin-bottom: 0.85rem;
+    flex-shrink: 0;
+    transition: transform 0.4s ease;
+  }
+  .card:hover img,
+  .card:focus img {
+    transform: scale(1.05);
+  }
+  .card h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    color: #00008B;
+  }
+  .card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+    flex-grow: 1;
+  }
+  /* Buttons */
+  .djs{
+    display: inline-block;
+    background-color: #ADD8E6;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.85rem 3rem;
+    border: none;
+    border-radius: 42px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2.5rem;
+    user-select: none;
+    box-shadow: 0 8px 25px rgba(45, 285, 255, 1);
+  }
+  .djs:hover,
+  .djs:focus {
+    background-color: #0000FF;
+    box-shadow: 0 12px 40px rgba(45, 285, 255, 1);
+    outline: none;
+  }
+  /* Contact Section */
+  #contact p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  #contact a {
+    color: #00008B;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+  }
+  #contact a:hover,
+  #contact a:focus {
+    text-decoration: underline;
+    color: #00008B;
+    outline: none;
+  }
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6e6e73;
+    padding: 3rem 1rem 4rem;
+    border-top: 2px solid #d2d2d7;
+    user-select: none;
+  }
+  /* Responsive */
+  @media (max-width: 620px) {
+    #about {
+      flex-direction: column;
       text-align: center;
-      position: relative;
     }
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
-      z-index: 1;
+    #about a {
+      margin-bottom: 1rem;
     }
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      position: relative;
-      z-index: 2; /* Ensure content is above the overlay */
-      background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent dark background for the container */
-      border-radius: 10px;
+  }
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(25px);
+      opacity: 0;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #ff4d4d;
+    to {
+      transform: translateY(0);
+      opacity: 1;
     }
-    h3 {
-      font-size: 1.3em;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      color: #ff4d4d;
-    }
-    p {
-      font-size: 1.2em;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-    .button {
-      display: inline-block;
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 1.1em;
-      color: #ffffff;
-      background-color: #ff4d4d;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    .button:hover {
-      transform: scale(1.1);
-      background-color: #e60000;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>FAQ</h1>
-    <h3>What kind of projects do you work on?</h3>
-    <p>I focus on edits, programming, and animations. You can find examples of my work on my social media channels!</p>
-    
-    <h3>Where can I follow you?</h3>
-    <p>Check out my YouTube channels: DJS_YT, DJS_Vortex, and DJS_ANIMATION. Links are on the home page.</p>
-    
-    <h3>Do you take project requests?</h3>
-    <p>No,I don't take projects for now becouse at the time I am just a kid, but feel free to reach out with ideas, and I’ll see what I can do!</p>
-    
-    <h3>How often do you post new content?</h3>
-    <p>I try to post updates or new projects every couple of weeks. follow my channels to stay updated!</p>
-    
-    <h3>What tools do you use for your animations?</h3>
-    <p>I use Flipaclip to make animeation.</p>
-    
-    <h3>What tools do you use to make edits?</h3>
-    <p>I use a mix of couple tools according to the project Capcut,After mostion,VN,Prisema3D for 3D animeations for a example Text animeation</p>
-    
-    <h3>Which games you use to play?</h3>
-    <p>I play Mimecraft and Roblox That's it.</p>
-    
-    <h3>Can I collaborate with you?</h3>
-    <p>I’m open to collaborations if the project aligns with my interests! Reach out via my social media channels to discuss.</p>
-    
-    <a href="index.html" class="button">Back to Home</a>
-  </div>
+<header>
+  <h1>DJS_Vortex's Portfolio</h1>
+  <p>FAQ Seaction</p>
+  <nav>
+    <a href="index.html" class="djs">Home</a>
+    <a href="BFF.html" class="djs">BFF</a>
+    <a href="FAQ.html"class="djs">FAQ</a>
+    <a href="guestbook.html"class="djs">Message</a>
+    <a href="edits.html"class="djs">Edits</a>
+    <a href="update.html"class="djs">Updates</a>
+  </nav>
+</header>
+
+<main>
+  <section id="about" tabindex="0" aria-label="about DJS_Vortex">
+    <div class="about-content">
+      <h2>FAQ</h2>
+<p>What kind of projects do you work on?</p>
+<ul>
+  <li>I focus on edits, programming, and animations. You can find examples of my work on my social media channels!</li>
+</ul>
+
+<p>Where can I follow you?</p>
+<ul>
+  <li>Check out my YouTube channels: DJS_YT, DJS_Vortex, and DJS_ANIMATION. Links are on the home page.</li>
+</ul>
+
+<p>Do you take project requests?</p>
+<ul>
+  <li>No, I don't take projects for now because at the time I am just a kid, but feel free to reach out with ideas, and I’ll see what I can do!</li>
+</ul>
+
+<p>How often do you post new content?</p>
+<ul>
+  <li>I try to post updates or new projects every couple of weeks. Follow my channels to stay updated!</li>
+</ul>
+
+<p>What tools do you use for your animations?</p>
+<ul>
+  <li>I use Flipaclip to make animations.</li>
+</ul>
+
+<p>What tools do you use to make edits?</p>
+<ul>
+  <li>I use a mix of tools depending on the project: CapCut, Alight Motion, VN, and Prisma3D for 3D animations — for example, text animations.</li>
+</ul>
+
+<p>Which games do you play?</p>
+<ul>
+  <li>I play Minecraft and Roblox. That's it.</li>
+</ul>
+
+<p>Can I collaborate with you?</p>
+<ul>
+  <li>I’m open to collaborations if the project aligns with my interests! Reach out via my social media channels to discuss.</li>
+</ul>
+      </section>
+  <section id="contact" tabindex="0" aria-label="Contact DJS_Vortex">
+    <h2>Contact</h2>
+    <p> 
+      <br>Discord: <a href="https://discord.com/users/1368846780594126849" target="_blank" rel="noopener noreferrer">djs_yt</a><br/>
+      Roblox Profile: <a href="https://www.roblox.com/users/5303639741/profile" target="_blank" rel="noopener noreferrer">PATSIM_99</a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2021 DJS_Vortex
+</footer>
+
+<script>
+  // Sections fade-in is handled by CSS, no JS needed here.
+</script>
 </body>
 </html>
