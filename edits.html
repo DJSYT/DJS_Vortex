@@ -357,7 +357,83 @@
 <footer>
   &copy; 2021 DJS_Vortex
 </footer>
+<head>
+  <meta charset="UTF-8" />
+  <title>My Cool GitHub Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      transition: background 0.5s, color 0.5s;
+    }
 
+    body.dark {
+      background: #121212;
+      color: #f5f5f5;
+    }
+
+    #toggle-dark {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .clock {
+      margin-top: 50px;
+      font-size: 2em;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 100px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-dark">🌙 Toggle Dark Mode</button>
+
+  <h1 id="typewriter"></h1>
+
+  <p style="text-align:center;">Welcome to my website! Scroll down to see the clock.</p>
+
+  <div class="clock">
+    <h2 id="clock"></h2>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const toggleButton = document.getElementById('toggle-dark');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Typewriter Effect
+    const text = "👋 Hello, I'm DJS_YT!";
+    const typewriter = document.getElementById('typewriter');
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typewriter.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 100);
+      }
+    }
+
+    type();
+
+    // Live Clock
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      const now = new Date();
+      clock.innerHTML = now.toLocaleTimeString();
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 <script>
   // Sections fade-in is handled by CSS, no JS needed here.
 </script>
